@@ -1,0 +1,44 @@
+<div
+	class="section container topics">
+	<h1>
+		Postez votre topic !
+	</h1>
+	<form
+		class="center"
+		*ngIf="isAuth"
+		(ngSubmit)="onSubmit()">
+
+		
+		<input
+			class="underline center"
+			[(ngModel)]="title"
+			name="title"
+			type="text"
+			placeholder="Titre du sujet...">
+			<textarea
+				class="underline center"
+				[(ngModel)]="message"
+				name="message"
+				rows="5"
+				placeholder="Ecrivrez votre message...">
+			</textarea>
+		<div
+			class="tex button red"
+			*ngFor="let er of err; let i = index"
+			(click)="destroy(i)">
+			{{er}}
+		</div>
+		<button
+			class="button green center margin-top"
+			type="submit">
+			Go !
+		</button>
+	</form>
+	<p
+		class="button red nohover"
+		*ngIf="!isAuth">
+		Vous devez être connecté pour poster !
+	</p>
+</div>
+
+	

@@ -1,0 +1,324 @@
+
+p{
+	margin: 0;
+}
+
+:focus {
+	outline: 0;
+}
+body {
+	background: #E0E0E0;
+	margin: 0;
+	padding: 0;
+}
+
+html *
+{
+	box-sizing: border-box;
+	 font-size: 1rem;
+	 color: #000;
+	 font-family: Arial;
+	 border: 0;
+	 outline : 0;
+
+}
+
+strong{
+	font-weight: bold;
+}
+
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+	border-radius: 0px;
+	outline-offset: 0px;
+    box-shadow: none;
+	display: block;
+}
+
+form > textarea{
+	box-sizing: border-box;
+	min-width: 100%;
+	max-width: 100%;
+}
+
+.nav{
+	background: #F0F0F0;
+}
+
+.container
+{
+	display: flex;
+	max-width: 1000px;
+	margin:auto;
+	flex-wrap:nowrap;
+	flex-direction: column;
+}
+
+.margin-top{
+	margin-top : 0.5rem;
+}
+
+.section{
+	margin-top: 1rem;
+}
+
+.flex-parent{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.flex-right{
+	justify-content: flex-end;
+}
+
+.flex-center{
+	justify-content: center;
+	align-items: flex-start
+}
+
+.flex-child{
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	text-align: center;
+	justify-content: center;
+}
+
+.shrink-prior{
+	flex-shrink: 1;
+}
+
+.margin-left{
+	margin-left: 0.5em;
+}
+
+.flex-child > * {
+	flex:1;
+}
+
+.text{
+	display: flex;
+	flex-wrap: nowrap;
+	margin: auto 0 auto 0;
+	justify-content: flex-end;
+
+}
+
+.post-header{
+	display: flex;
+	justify-content: space-between;
+}
+
+.post:nth-child(even){
+	background-color: #f4d9d0
+}
+
+.post{
+	margin:0.25rem;
+	padding: 0.25rem;
+	background-color: #cfd9f2;
+}
+
+.post:hover{
+	background-color: #f4e3c9;
+}
+
+.tex{
+	flex-basis: 100%;
+}
+
+.normal, .underline{
+	padding:0.2rem;
+	background:white;
+	border:none;
+}
+
+.normal:focus, .underline:focus{
+	outline:none;
+}
+
+.underline {
+	padding-top:calc(0.2rem + 4px);
+	border-bottom: 4px solid transparent;
+}
+
+.underline:focus {
+	border-bottom: 4px solid #4CAF50;
+}
+
+.center{
+	flex-grow:1;
+	flex-shrink: 1;
+	width:100%;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+.full
+{
+	box-sizing: border-box;
+	width:100%;
+}
+
+.topics{
+	width: 100%;
+	flex-basis: 100%;
+	background-color: #FFFFFF;
+	padding:0.5rem;
+}
+.topics h1{
+	color:#4CAF50;
+	flex-basis: 100%;
+	padding:10px;
+	display: flex;
+	justify-content: center;
+	margin:auto;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.pages{
+	margin-top:0.5rem;
+	align-items: center;
+}
+
+.page{
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+}
+
+.topic{
+	display: flex;
+}
+.topic:nth-child(even){
+	background-color: #F0F0FF;
+
+}
+.topic:hover{
+	background-color:rgba(0, 0, 0, 0.2);
+}
+
+.nowrap{
+	display:flex;
+	flex-wrap: nowrap;
+}
+
+.button{
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	cursor: pointer;
+	border: none;
+	color: white;
+	padding:calc(0.2rem + 4px);
+	text-decoration: none;
+}
+
+.test{
+	background: olive;
+}
+
+.green{
+	background-color: #4CAF50; /* Green */
+}
+
+.button.green:hover:not(.nohover){
+	background-color: #15781B;
+}
+.green-active{
+	background-color: #15781B;
+}
+
+.blue{
+	background-color: #3B8386;
+}
+
+.grey{
+	background-color: #EEE;
+	color:#222;
+}
+
+.button.blue:hover:not(.nohover) {
+	background-color:#10595C;
+}
+
+.red{
+	background-color: #DE6461;
+}
+.button.red:hover:not(.nohover){
+	background-color: #981D1A;
+}
+
+.nohover{
+	cursor: default;
+}
+
+.margin-bottom{
+	margin-bottom: 0.5rem;
+}
+
+.marginTopContainer{
+	margin-top:-0.2rem;
+}
+.marginTopChild{
+	margin-top:0.2rem;
+}
+
+.marginRightContainer{
+	margin-right: -0.2rem;
+}
+.marginRightChild{
+	margin-right: 0.2rem;
+}
+
+.current{
+	box-sizing: content-box;
+	text-align: start;
+}
+
+/*
+		<form
+			class="flex-parent flex-right marginTopContainer marginRightContainer" 
+			*ngIf="!isAuth"
+			(ngSubmit)="onSubmit()">
+			<div
+				class="flex-child marginTopChild">
+				<input
+					class="underline" 
+					type="text"
+					[(ngModel)]="pseudo"
+					placeholder="Enter pseudo"
+					name="pseudo">
+				<input
+					class="underline" 
+					type="password"
+					[(ngModel)]="password"
+					placeholder="Enter password"
+					name="password">
+				<div
+					class="tex"
+					*ngFor="let er of err">
+					{{er}}
+				</div>
+			</div>
+			<div
+				class="flex-child marginTopChild">
+				<button
+					class="button green "
+					type="submit">
+					Log in
+				</button>
+				<a
+					class="button blue"
+					href="/register">
+					Register
+				</a>
+				
+			</div>
+		</form>
+		*/

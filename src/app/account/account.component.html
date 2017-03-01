@@ -1,0 +1,62 @@
+<div class="nav">
+	<div
+		class="container">
+		<form
+			class="flex-parent flex-right" 
+			*ngIf="!isAuth"
+			(ngSubmit)="onSubmit()">
+			<div
+				class="flex-child">
+				<input
+					class="underline" 
+					type="text"
+					[(ngModel)]="pseudo"
+					placeholder="Enter pseudo"
+					name="pseudo">
+				<input
+					class="underline" 
+					type="password"
+					[(ngModel)]="password"
+					placeholder="Enter password"
+					name="password">
+				<div
+					class="tex button red"
+					*ngFor="let er of err; let i = index"
+					(click)="destroy(i)">
+					{{er}}
+				</div>
+			</div>
+			<div
+				class="flex-child">
+				<button
+					class="button green "
+					type="submit">
+					Log in
+				</button>
+				<a
+					class="button blue"
+					href="/register">
+					Register
+				</a>
+				
+			</div>
+		</form>
+
+		<div
+			class="flex-parent flex-right"
+			*ngIf="isAuth">
+			<div
+				class="text">
+				<p>Logged as &nbsp;</p>
+				<strong>{{pseudo}}</strong>
+			</div>
+			<div>
+				<button
+					class="button red margin-left" 
+					(click)="onDisconnect()">
+					Logout
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

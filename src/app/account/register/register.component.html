@@ -1,0 +1,40 @@
+<div
+	class="section container topics">
+	<h1>
+		Créer ton compte !
+	</h1>
+	<form
+		class="center"
+		(ngSubmit)="onSubmit()">
+		<input
+			class="underline center" 
+			type="text"
+			[(ngModel)]="pseudo"
+			placeholder="Enter pseudo"
+			name="pseudo">
+		<input
+			class="underline center"
+			type="password"
+			[(ngModel)]="password"
+			placeholder="Enter password"
+			name="password">
+		<input
+			class="underline center"
+			type="password"
+			[(ngModel)]="confirm_password"
+			placeholder="Re-enter password"
+			name="password_confirm">
+		<div
+			class="tex button red"
+			*ngFor="let er of err; let i = index"
+			(click)="destroy(i)">
+			{{er}}
+		</div>
+		
+		<button
+			class="button green center margin-top"
+			type="submit">
+			Register
+		</button>
+	</form>
+</div>

@@ -1,0 +1,67 @@
+<div
+	class="section container topics">
+	<h1 >
+		{{thread.title}}
+	</h1>
+	<a
+		class="button green margin-bottom"
+		href="/threads">
+		Liste sujets
+	</a>
+	<div
+		class="post"
+		*ngFor="let p of thread.posts">
+		<div
+			class="post-header">
+			<div>
+				<strong>{{p.author}}</strong>
+			</div>
+			<div>
+					{{getTime(p.time_created)}}
+			</div>
+		</div>
+		<p>
+			{{p.content}}
+		</p>
+	</div>
+
+	<div
+		class="section container topics">
+		<h1>
+			Votre réponse
+		</h1>
+		<form
+			class="center"
+			*ngIf="isAuth"
+			(ngSubmit)="onSubmit()">
+
+			
+			<textarea
+				class="underline center"
+				[(ngModel)]="content"
+				name="content"
+				rows="5"
+				placeholder="Ecrivrez votre message...">
+			</textarea>
+			<div
+				class="tex button red"
+				*ngFor="let er of err; let i = index"
+				(click)="destroy(i)">
+				{{er}}
+			</div>
+			<button
+				class="button green center margin-top"
+				type="submit">
+				Go !
+			</button>
+		</form>
+		<p
+			class="button red nohover"
+			*ngIf="!isAuth">
+			Vous devez être connecté pour poster !
+		</p>
+	</div>
+
+	
+
+</div>

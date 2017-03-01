@@ -1,0 +1,72 @@
+<div
+	class="section container topics">
+	<h1>
+		Liste des topics !
+	</h1>
+	<div
+		class="post"
+		(click)="select_thread(t)"
+		*ngFor="let t of threadsDescription.threadsPreviews">
+		
+		<div
+			class="post-header">
+			<div>
+				<strong>{{t.name}}</strong>
+			</div>
+			<div>
+					{{getTime(t.time_created)}}
+			</div>
+		</div>
+		<p>
+			{{t.title}}
+		</p>
+	</div>
+
+	<div
+		class="flex-parent flex-center pages">
+		<div
+			class="flex-parent"
+			*ngIf="displayFirstPage()">
+			<button
+				class="button green page"
+				(click)="page_click($event)">
+				0
+			</button>
+			<div
+				class="button grey nohover page">
+				...
+			</div>
+		</div>
+		<button
+			class="button green page"
+			*ngFor="let i of firsttopics"
+			(click)="page_click($event)">
+			{{i}}
+		</button>
+		<input
+			type="number"
+			class="button green green-active nohover current page"
+			value={{page}}
+			[style.width]="lwidth+'em'"
+			(change)="page_input($event)">
+		<button
+			class="button green page"
+			*ngFor="let i of lasttopics"
+			(click)="page_click($event)">
+			{{i}}
+		</button>
+		<div
+			class="flex-parent"
+			*ngIf="displayLastPage()">
+			<div
+				class="button grey nohover page">
+				...
+			</div>
+			<button
+				class="button green page"
+				(click)="page_click($event)">
+				{{max_page}}
+			</button>
+		</div>
+	</div>
+</div>
